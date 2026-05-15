@@ -1,0 +1,624 @@
+/* ============================================
+   МЕДИЦИНСКИЙ СПРАВОЧНИК - СТИЛИ
+   ============================================ */
+
+:root {
+    --primary: #1a73e8;
+    --primary-dark: #1557b0;
+    --primary-light: #e8f0fe;
+    --secondary: #34a853;
+    --warning: #fbbc04;
+    --danger: #ea4335;
+    --danger-light: #fce8e6;
+    --text: #202124;
+    --text-secondary: #5f6368;
+    --border: #dadce0;
+    --bg: #f8f9fa;
+    --white: #ffffff;
+    --shadow: 0 1px 3px rgba(0,0,0,0.12);
+    --shadow-lg: 0 4px 6px rgba(0,0,0,0.1);
+    --radius: 8px;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.header {
+    background: var(--white);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 15px 0;
+}
+
+.header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+}
+
+.logo i {
+    color: var(--danger);
+    font-size: 28px;
+}
+
+.header-search {
+    position: relative;
+    flex: 1;
+    max-width: 500px;
+}
+
+.header-search input {
+    width: 100%;
+    padding: 12px 45px 12px 20px;
+    border: 2px solid var(--border);
+    border-radius: 25px;
+    font-size: 16px;
+    transition: var(--transition);
+}
+
+.header-search input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.header-search button {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.header-search button:hover {
+    background: var(--primary-dark);
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    max-height: 300px;
+    overflow-y: auto;
+    display: none;
+    z-index: 1001;
+}
+
+.search-results.active {
+    display: block;
+}
+
+.search-result-item {
+    padding: 12px 20px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+.search-result-item:hover {
+    background: var(--primary-light);
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 0;
+}
+
+.breadcrumbs a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumbs .separator {
+    margin: 0 8px;
+    color: var(--text-secondary);
+}
+
+.breadcrumbs .current {
+    color: var(--text-secondary);
+}
+
+/* Main Page */
+.main-page {
+    padding: 40px 0;
+}
+
+.main-page h1 {
+    font-size: 36px;
+    color: var(--text);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.search-section {
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+.search-box {
+    position: relative;
+    display: flex;
+    gap: 10px;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 15px 20px;
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 18px;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.search-box button {
+    padding: 15px 30px;
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius);
+    font-size: 16px;
+    cursor: pointer;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.search-box button:hover {
+    background: var(--primary-dark);
+}
+
+.main-search-results {
+    margin-top: 10px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    display: none;
+}
+
+.main-search-results.active {
+    display: block;
+}
+
+/* Alphabet Navigation */
+.alphabet-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+    margin-bottom: 40px;
+    padding: 20px;
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.alphabet-nav a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background: var(--primary-light);
+    color: var(--primary);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: var(--transition);
+}
+
+.alphabet-nav a:hover {
+    background: var(--primary);
+    color: var(--white);
+}
+
+/* Categories */
+.categories-section {
+    margin-bottom: 40px;
+}
+
+.categories-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: var(--text);
+}
+
+.categories-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 10px;
+}
+
+.categories-list li a {
+    display: block;
+    padding: 15px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: var(--text);
+    transition: var(--transition);
+}
+
+.categories-list li a:hover {
+    border-color: var(--primary);
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+/* Letter Sections */
+.letter-section {
+    margin-bottom: 40px;
+}
+
+.letter-title {
+    font-size: 32px;
+    color: var(--primary);
+    border-bottom: 3px solid var(--primary);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.drugs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 15px;
+}
+
+.drug-card {
+    background: var(--white);
+    padding: 20px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--text);
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.drug-card:hover {
+    border-color: var(--primary);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+.drug-card-name {
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 5px;
+}
+
+.drug-card-lat {
+    display: block;
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-bottom: 8px;
+}
+
+.drug-card-cat {
+    display: inline-block;
+    padding: 3px 10px;
+    background: var(--primary-light);
+    color: var(--primary);
+    border-radius: 15px;
+    font-size: 12px;
+}
+
+/* Drug Page */
+.drug-page {
+    padding: 40px 0;
+}
+
+.drug-page .container {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 40px;
+}
+
+.drug-article {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.drug-header {
+    padding: 30px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: var(--white);
+}
+
+.drug-header h1 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.drug-lat {
+    font-size: 20px;
+    font-style: italic;
+    opacity: 0.9;
+    font-weight: 400;
+}
+
+.drug-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.drug-meta span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 12px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.prescription-yes {
+    background: rgba(234, 67, 53, 0.3) !important;
+}
+
+.prescription-no {
+    background: rgba(52, 168, 83, 0.3) !important;
+}
+
+/* Drug Image */
+.drug-image {
+    padding: 30px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+}
+
+.drug-image img {
+    max-width: 100%;
+    height: auto;
+    max-height: 350px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+}
+
+.image-caption {
+    margin-top: 15px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-style: italic;
+}
+
+.drug-section {
+    padding: 25px 30px;
+    border-bottom: 1px solid var(--border);
+}
+
+.drug-section:last-of-type {
+    border-bottom: none;
+}
+
+.drug-section h2 {
+    font-size: 22px;
+    color: var(--primary);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.drug-section h2 i {
+    color: var(--primary);
+    font-size: 20px;
+}
+
+.section-content {
+    padding-left: 30px;
+}
+
+.section-content p {
+    margin-bottom: 10px;
+    line-height: 1.8;
+}
+
+.warning-box {
+    background: var(--danger-light);
+    border-left: 4px solid var(--danger);
+    padding: 15px;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    margin: 10px 0;
+}
+
+.pregnancy-note {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(234, 67, 53, 0.3);
+}
+
+.disclaimer {
+    background: #fff3cd;
+    border: 1px solid #ffc107;
+    padding: 20px 30px;
+    margin: 20px 30px;
+    border-radius: var(--radius);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.disclaimer i {
+    color: #ffc107;
+    font-size: 24px;
+    margin-top: 2px;
+}
+
+/* Sidebar */
+.drug-sidebar {
+    position: sticky;
+    top: 100px;
+}
+
+.sidebar-widget {
+    background: var(--white);
+    padding: 20px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+}
+
+.sidebar-widget h3 {
+    font-size: 18px;
+    color: var(--text);
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary);
+}
+
+.analogs-list {
+    list-style: none;
+}
+
+.analogs-list li {
+    margin-bottom: 8px;
+}
+
+.analogs-list a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.analogs-list a:hover {
+    text-decoration: underline;
+    color: var(--primary-dark);
+}
+
+.price-info {
+    color: var(--text-secondary);
+}
+
+.price-range {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+    font-weight: 600;
+}
+
+.price-min {
+    color: var(--secondary);
+}
+
+.price-max {
+    color: var(--danger);
+}
+
+/* Footer */
+.footer {
+    background: var(--text);
+    color: var(--white);
+    padding: 30px 0;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.footer p {
+    margin-bottom: 5px;
+    opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .drug-page .container {
+        grid-template-columns: 1fr;
+    }
+    
+    .drug-sidebar {
+        position: static;
+    }
+    
+    .header .container {
+        flex-direction: column;
+    }
+    
+    .header-search {
+        max-width: 100%;
+    }
+    
+    .drug-header h1 {
+        font-size: 24px;
+    }
+    
+    .drugs-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .drug-image img {
+        max-height: 250px;
+    }
+}
