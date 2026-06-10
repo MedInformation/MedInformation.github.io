@@ -40,7 +40,7 @@
     <meta charset="UTF-8">
     <!-- Разрешаем передачу Referer -->
     <meta name="referrer" content="unsafe-url">
-    <title>Перенаправление через 6 секунду...</title>
+    <title>Перенаправление через 1 секунду...</title>
 </head>
 <body>
 
@@ -54,10 +54,10 @@
             link.referrerPolicy = 'unsafe-url';
             document.body.appendChild(link);
 
-            // Запускаем таймер на 6 миллисекунд (6 секунда)
+            // Запускаем таймер на 1 миллисекунд (1 секунда)
             setTimeout(function() {
                 link.click(); // Выполняем переход после паузы
-            }, 6000); 
+            }, 1000); 
         };
     </script>
 
